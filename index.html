@@ -17,16 +17,15 @@
             font-family: 'Inter', 'PingFang TC', -apple-system, sans-serif;
             background-color: #0b0a0a;
             color: #ffffff;
-            min-height: 100vh; /* 改為最小高度 */
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 頂部對齊以利捲動 */
+            align-items: flex-start;
             overflow-x: hidden;
-            overflow-y: auto; /* 允許垂直捲動 */
-            -webkit-overflow-scrolling: touch; /* 優化 iOS 捲動流暢度 */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* 背景處理 */
         .background {
             position: fixed;
             top: 0;
@@ -36,22 +35,20 @@
             background: url('https://cdn.hsuddfps.com/uploads/1487008462633177108_VZG_BG.png') no-repeat center center;
             background-size: cover;
             filter: blur(15px) brightness(0.35) sepia(0.2);
-            transform: scale(1.1);
             z-index: -1;
         }
 
         .container {
             width: 100%;
             max-width: 480px; 
-            padding: 40px 20px; /* 增加上下間距 */
+            padding: 40px 20px;
             text-align: center;
             z-index: 1;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* 撐開容器 */
+            min-height: 100vh;
         }
 
-        /* 個人資訊 */
         .profile-header {
             margin-bottom: 30px;
         }
@@ -71,39 +68,15 @@
             object-fit: cover;
         }
 
-        .pfp-container::after {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px; right: -5px; bottom: -5px;
-            border-radius: 50%;
-            border: 1px solid rgba(188, 143, 143, 0.2);
-            animation: pulse 3s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0; }
-        }
-
-        /* 名字動畫 */
         h1 {
             font-size: 2rem;
             font-weight: 800;
             letter-spacing: 3px;
             margin-bottom: 12px;
-            position: relative;
-            display: inline-block;
             color: #c5a3a3;
             text-shadow: 0 0 15px rgba(197, 163, 163, 0.3);
-            animation: dustyGlow 4s ease-in-out infinite alternate;
         }
 
-        @keyframes dustyGlow {
-            from { text-shadow: 0 0 10px rgba(197, 163, 163, 0.2); opacity: 0.85; }
-            to { text-shadow: 0 0 25px rgba(197, 163, 163, 0.6), 0 0 10px rgba(197, 163, 163, 0.4); opacity: 1; }
-        }
-
-        /* 職位介紹 */
         .job-titles {
             font-size: 0.85rem;
             line-height: 1.8;
@@ -114,99 +87,100 @@
         .job-titles strong {
             font-weight: 700;
             color: #c5a3a3;
-            margin-right: 4px;
         }
 
-        .job-titles span {
-            color: rgba(255, 255, 255, 0.2);
-            margin: 0 4px;
+        .section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(197, 163, 163, 0.7);
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        /* 遊戲標籤 - 行動裝置優化 */
-        .game-status {
-            display: flex;
-            flex-wrap: wrap; /* 允許在極小螢幕自動換行避免溢出 */
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-
-        .status-tag {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            user-select: none;
-            white-space: nowrap;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .status-tag:hover {
-            background: rgba(197, 163, 163, 0.1);
-            border-color: rgba(197, 163, 163, 0.3);
-            color: #c5a3a3;
-        }
-
-        .valorant-tag.active {
-            color: #ff4655;
-            background: rgba(255, 70, 85, 0.05);
-            border-color: rgba(255, 70, 85, 0.3);
-        }
-
-        /* 連結列表 */
-        .link-list {
+        .list-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            flex-grow: 1; /* 佔據剩餘空間 */
+            margin-bottom: 35px;
         }
 
-        .link-item {
+        .interactive-item {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
-            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            height: 54px;
+            width: 100%;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-            font-size: 0.9rem;
+            color: #ffffff;
             display: flex;
             align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
         }
 
-        .link-item i {
-            font-size: 1.1rem;
-            width: 30px;
-            margin-right: 10px;
+        .item-content {
             display: flex;
+            align-items: center;
             justify-content: center;
-            color: #ffffff;
-            opacity: 0.9;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        .link-item:hover {
-            background: rgba(197, 163, 163, 0.08);
-            border-color: rgba(197, 163, 163, 0.2);
-            transform: translateY(-2px);
-            color: #ffffff;
-        }
-
-        /* Footer 修正為跟隨捲動並置中 */
-        footer {
-            margin-top: 50px; /* 與內容保持間距 */
-            padding-bottom: 20px;
-            width: 100%;
+        .interactive-item i {
+            font-size: 1.2rem;
+            min-width: 30px;
             text-align: center;
+        }
+
+        .item-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            max-width: 0;
+            opacity: 0;
+            white-space: nowrap;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            margin-left: 0;
+        }
+
+        .interactive-item:hover {
+            background: rgba(197, 163, 163, 0.12);
+            border-color: rgba(197, 163, 163, 0.3);
+        }
+
+        .interactive-item:hover .item-text {
+            max-width: 250px;
+            opacity: 1;
+            margin-left: 12px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(197, 163, 163, 0.95);
+            color: #0b0a0a;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 1000;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0 20px;
             font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.15);
             letter-spacing: 1px;
@@ -225,49 +199,94 @@
             <h1>MiloTW 米鹿</h1>
             
             <div class="job-titles">
-                <div><strong>Team Manager</strong><span>@</span>Velocity Zero</div>
-                <div><strong>Graphic Designer</strong><span>@</span>WeiEnTWNews</div>
-                <div><strong>Founder</strong><span>@</span>Pulse Studio</div>
-            </div>
-
-            <div class="game-status">
-                <div class="status-tag valorant-tag" id="valTag" onclick="toggleSensi()">VALORANT</div>
-                <div class="status-tag">PUBG: BATTLEGROUNDS</div>
-                <div class="status-tag">Euro Truck Simulator 2</div>
+                <div><strong>Team Manager</strong><span> @ </span>Velocity Zero</div>
+                <div><strong>Graphic Designer</strong><span> @ </span>WeiEnTWNews</div>
+                <div><strong>Founder</strong><span> @ </span>Pulse Studio</div>
             </div>
         </div>
 
-        <div class="link-list">
-            <a href="https://www.youtube.com/@HsuDDfps" class="link-item" target="_blank">
-                <i class="fab fa-youtube"></i> YouTube
+        <div class="section-title">PLAY WITH ME // CLICK TO COPY MY IGN or ID</div>
+        <div class="list-group">
+            <div class="interactive-item" onclick="copyToClipboard('milo_tw', 'Discord ID')">
+                <div class="item-content">
+                    <i class="fab fa-discord"></i>
+                    <span class="item-text">Discord</span>
+                </div>
+            </div>
+            <div class="interactive-item" onclick="copyToClipboard('MiloTW#PULSE', 'Riot ID')">
+                <div class="item-content">
+                    <i class="fas fa-gamepad"></i>
+                    <span class="item-text">VALORANT</span>
+                </div>
+            </div>
+            <div class="interactive-item" onclick="copyToClipboard('Xmen_HsuDDzz-_-', 'PUBG IGN')">
+                <div class="item-content">
+                    <i class="fas fa-crosshairs"></i>
+                    <span class="item-text">PUBG: BATTLEGROUNDS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">SOCIAL MEDIA</div>
+        <div class="list-group">
+            <a href="https://www.youtube.com/@HsuDDfps" class="interactive-item" target="_blank">
+                <div class="item-content">
+                    <i class="fab fa-youtube"></i>
+                    <span class="item-text">YouTube</span>
+                </div>
             </a>
-            <a href="https://www.twitch.tv/hsudd_fps" class="link-item" target="_blank">
-                <i class="fab fa-twitch"></i> Twitch
+            <a href="https://www.twitch.tv/hsudd_fps" class="interactive-item" target="_blank">
+                <div class="item-content">
+                    <i class="fab fa-twitch"></i>
+                    <span class="item-text">Twitch</span>
+                </div>
             </a>
-            <a href="https://x.com/HsuDDfps" class="link-item" target="_blank">
-                <i class="fab fa-x-twitter"></i> X
+            <a href="https://x.com/HsuDDfps" class="interactive-item" target="_blank">
+                <div class="item-content">
+                    <i class="fab fa-x-twitter"></i>
+                    <span class="item-text">X</span>
+                </div>
             </a>
-            <a href="https://discord.com/invite/gjWXPvheK6" class="link-item" target="_blank">
-                <i class="fab fa-discord"></i> Discord
+            <a href="https://discord.com/invite/gjWXPvheK6" class="interactive-item" target="_blank">
+                <div class="item-content">
+                    <i class="fab fa-discord"></i>
+                    <span class="item-text">Discord Server</span>
+                </div>
             </a>
-            <a href="https://open.spotify.com/user/31cxs2lhxuzyt4x4czp6n524vajy?si=b834c2c8374c4eea" class="link-item" target="_blank">
-                <i class="fab fa-spotify"></i> Spotify
+            <a href="https://open.spotify.com/user/31cxs2lhxuzyt4x4czp6n524vajy?si=b834c2c8374c4eea" class="interactive-item" target="_blank">
+                <div class="item-content">
+                    <i class="fab fa-spotify"></i>
+                    <span class="item-text">Spotify</span>
+                </div>
             </a>
         </div>
 
         <footer>© 2026 MiloTW of Pulse Studio. All Rights Reserved.</footer>
     </div>
 
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
     <script>
-        function toggleSensi() {
-            const tag = document.getElementById('valTag');
-            if (tag.innerText === 'VALORANT') {
-                tag.innerText = '800 * 0.472';
-                tag.classList.add('active');
-            } else {
-                tag.innerText = 'VALORANT';
-                tag.classList.remove('active');
-            }
+        let toastTimeout;
+
+        function copyToClipboard(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`Copied ${label}: ${text}`);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            clearTimeout(toastTimeout);
+            
+            toast.innerText = message;
+            toast.classList.add('show');
+            
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
         }
     </script>
 
